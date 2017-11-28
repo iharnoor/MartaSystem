@@ -45,8 +45,8 @@ public class LoginController implements Initializable {
     @FXML
     public void Login(ActionEvent event) {
         try {
-            if (this.loginModel.isLogin(this.username.getText(), this.password.getText(), ((option) this.combobox.getValue()).toString())) {
-                Stage stage = (Stage) this.loginButton.getScene().getWindow();
+            if (this.loginModel.isLogin(this.username.getText(), this.password.getText(), ((option) this.combobox.getValue()).toString())) {//match credentials
+                Stage stage = (Stage) this.loginButton.getScene().getWindow();//open layout
                 stage.close();
                 switch (((option) this.combobox.getValue()).toString()) {
 //                    case "Admin":

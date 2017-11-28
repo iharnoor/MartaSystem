@@ -41,7 +41,6 @@ public class LoginModel {
             if (rs.next())
                 return true;
             return false;
-
         } catch (SQLException e) {
 //            e.printStackTrace();
             return false;

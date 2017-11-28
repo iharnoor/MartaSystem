@@ -1,7 +1,63 @@
 package WelcomePage;
 
-/**
- * Created by hsingh9 on 11/28/2017.
- */
-public class WelcomeController {
+import LoginApp.LoginController;
+import SignUpPage.SignUpController;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class WelcomeController implements Initializable {
+    @FXML
+    private Button loginButton;
+    @FXML
+    private Button signUpButton;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
+    @FXML
+    public void onClickLogin(ActionEvent event) {
+        try {
+            Stage userStage = new Stage();
+            FXMLLoader loader = new FXMLLoader();
+            Pane root = (Pane) loader.load(getClass().getResource("/LoginApp/login.fxml").openStream());
+
+            LoginController loginController = (LoginController) loader.getController();
+            Scene scene = new Scene(root);
+            userStage.setScene(scene);
+            userStage.setTitle("Login Page");
+            userStage.setResizable(false);
+            userStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void onClickSignUp(ActionEvent event) {
+        try {
+            Stage userStage = new Stage();
+            FXMLLoader loader = new FXMLLoader();
+            Pane root = (Pane) loader.load(getClass().getResource("/SignUpPage/signUpFXML.fxml").openStream());
+
+            SignUpController signUpController = (SignUpController) loader.getController();
+            Scene scene = new Scene(root);
+            userStage.setScene(scene);
+            userStage.setTitle("SignUp Page");
+            userStage.setResizable(false);
+            userStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
