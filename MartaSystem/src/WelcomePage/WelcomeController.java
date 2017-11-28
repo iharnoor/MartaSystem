@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -20,6 +22,7 @@ public class WelcomeController implements Initializable {
     private Button loginButton;
     @FXML
     private Button signUpButton;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

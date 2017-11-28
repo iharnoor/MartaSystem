@@ -1,7 +1,5 @@
 package LoginApp;
 
-//import Admin.AdminController;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,8 +25,6 @@ public class LoginController implements Initializable {
     @FXML
     private PasswordField password;
     @FXML
-    private ComboBox<option> combobox;
-    @FXML
     private Button loginButton;
     @FXML
     private Label loginStatus;
@@ -39,23 +35,17 @@ public class LoginController implements Initializable {
             this.dbstatus.setText("Connected to Database");
         } else this.dbstatus.setText("Not Connected to Database");
 
-        this.combobox.setItems(FXCollections.observableArrayList(option.values()));
     }
 
     @FXML
     public void Login(ActionEvent event) {
         try {
-            if (this.loginModel.isLogin(this.username.getText(), this.password.getText(), ((option) this.combobox.getValue()).toString())) {//match credentials
+            if (this.loginModel.isLogin(this.username.getText(), this.password.getText())) {//match credentials
                 Stage stage = (Stage) this.loginButton.getScene().getWindow();//open layout
                 stage.close();
-                switch (((option) this.combobox.getValue()).toString()) {
-//                    case "Admin":
-//                        adminLogin();
-//                        break;
-                    case "Student":
-                        studentLogin();
-                        break;
-                }
+
+                studentLogin();
+
             } else this.loginStatus.setText("Wrong Credentials");
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,21 +68,5 @@ public class LoginController implements Initializable {
             e.printStackTrace();
         }
     }
-//
-//    public void studentLogin() {
-//        try {
-//            Stage adminStage = new Stage();
-//            FXMLLoader adminLoader = new FXMLLoader();
-//            Pane adminRoot = (Pane) adminLoader.load(getClass().getResource("/Admin/Admin.fxml").openStream());
-//
-//            AdminController adminController = (AdminController) adminLoader.getController();
-//            Scene scene = new Scene(adminRoot);
-//            adminStage.setScene(scene);
-//            adminStage.setTitle("Admin Dashboard");
-//            adminStage.setResizable(false);
-//            adminStage.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+
 }

@@ -6,20 +6,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0"
-            prefWidth="311.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="SignUpPage.SignUpController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="311.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SignUpPage.SignUpController">
     <children>
-        <TextField layoutX="62.0" layoutY="78.0" promptText="First Name"/>
-        <TextField layoutX="62.0" layoutY="116.0" promptText="Last Name"/>
-        <TextField layoutX="62.0" layoutY="155.0" promptText="MARTA Card #"/>
-        <TextField layoutX="62.0" layoutY="196.0" promptText="Phone #"/>
-        <TextField layoutX="62.0" layoutY="235.0" promptText="Username"/>
-        <Button fx:id="signUpButton" layoutX="119.0" layoutY="372.0" mnemonicParsing="false" onAction="#onClickSignUp"
-                text="Sign Up"/>
-        <Label layoutX="89.0" layoutY="34.0" prefHeight="21.0" prefWidth="136.0" text="Let's get Started"/>
-        <PasswordField layoutX="63.0" layoutY="276.0" promptText="Password"/>
-        <PasswordField layoutX="63.0" layoutY="313.0" promptText="Confirm Password"/>
+        <TextField fx:id="firstName" layoutX="62.0" layoutY="78.0" promptText="First Name" />
+        <TextField fx:id="lastName" layoutX="62.0" layoutY="116.0" promptText="Last Name" />
+        <TextField fx:id="martaCardNo" layoutX="62.0" layoutY="155.0" promptText="MARTA Card #" />
+        <TextField fx:id="phoneNo" layoutX="62.0" layoutY="196.0" promptText="Phone #" />
+        <TextField fx:id="userName" layoutX="62.0" layoutY="235.0" promptText="Username" />
+        <Button fx:id="signUpButton" layoutX="119.0" layoutY="372.0" mnemonicParsing="false" onAction="#onClickSignUp" text="Sign Up" />
+        <Label fx:id="print" layoutX="89.0" layoutY="34.0" prefHeight="21.0" prefWidth="136.0" text="Let's get Started" />
+        <PasswordField fx:id="password" layoutX="63.0" layoutY="276.0" promptText="Password" />
+        <PasswordField fx:id="confPassword" layoutX="63.0" layoutY="313.0" promptText="Confirm Password" />
     </children>
 </AnchorPane>
