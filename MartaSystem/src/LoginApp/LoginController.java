@@ -6,31 +6,23 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import LoginSuccessful.LoginSuccessController;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
-    LoginModel loginModel = new LoginModel();
+    private LoginModel loginModel = new LoginModel();
 
     @FXML
     private Label dbstatus;
     @FXML
     private TextField username;
-
-    public TextField getUsername() {
-        return username;
-    }
-
     @FXML
-
     private PasswordField password;
     @FXML
     private Button loginButton;
@@ -38,31 +30,32 @@ public class LoginController implements Initializable {
     private Label loginStatus;
     @FXML
     private ImageView imageView;
+    public String userName;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        File file = new File("Marta_Logo2.png");
-        Image image = new Image(file.toURI().toString());
-        imageView.setImage(image);
         if (this.loginModel.isDatabaseConnected()) {
-            this.dbstatus.setText("Connected to Database");
+            this.dbstatus.setText("Enter Username and Password");
         } else this.dbstatus.setText("Not Connected to Database");
     }
 
     @FXML
     public void Login(ActionEvent event) {
+        userName = this.username.getText();
         try {
             if (this.loginModel.isLogin(this.username.getText(), this.password.getText())) {//match credentials
                 Stage stage = (Stage) this.loginButton.getScene().getWindow();//open layout
                 stage.close();
-                studentLogin();
+                userLogin();
             } else this.loginStatus.setText("Wrong Credentials");
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
-    public void studentLogin() {
+    public void userLogin() {
         try {
             Stage userStage = new Stage();
             FXMLLoader loader = new FXMLLoader();
@@ -78,5 +71,4 @@ public class LoginController implements Initializable {
             e.printStackTrace();
         }
     }
-
 }

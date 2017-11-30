@@ -1,6 +1,7 @@
 package LoginSuccessful;
 
 import FileViolation.FileViolationController;
+import LoginApp.LoginApp;
 import LoginApp.LoginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,11 +26,12 @@ public class LoginSuccessController implements Initializable {
     @FXML
     private Label print;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        File file = new File("Marta_Logo2.png");
-        Image image = new Image(file.toURI().toString());
-        imageView.setImage(image);
+//        String userName = new LoginController().getUsername();
+//        print.setText();
+
     }
 
     public void onReportClick(ActionEvent event) {

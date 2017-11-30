@@ -1,16 +1,16 @@
-package LoginApp;
+package LoginSuccessful;
+
+import dbUtil.dbConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dbUtil.dbConnection;
-
-public class LoginModel {
+public class LoginSuccessModel {
     Connection connection;
 
-    public LoginModel() {
+    public LoginSuccessModel() {
         try {
             this.connection = dbConnection.getConnection();
         } catch (SQLException e) {
@@ -25,25 +25,25 @@ public class LoginModel {
         return this.connection != null;
     }
 
-    public boolean isLogin(String user, String pass) throws Exception {
+    public String getFirstName(String user) throws Exception {
         PreparedStatement prpStmt = null;
         ResultSet rs = null;
-        String sql = "SELECT * FROM login where username = ? and password =?";
+        String sql = "SELECT firstname FROM login where username = ?";
 
         try {
             prpStmt = this.connection.prepareStatement(sql);
             prpStmt.setString(1, user);
-            prpStmt.setString(2, pass);
             rs = prpStmt.executeQuery();
-            boolean bool1;
-
-            return rs.next();
+//            boolean bool1;
+            return rs.getString(3);
+//            return rs.next();
         } catch (SQLException e) {
 //            e.printStackTrace();
-            return false;
+//            return false;
         } finally {
             prpStmt.close();
             rs.close();
         }
+        return "Not Found";
     }
 }

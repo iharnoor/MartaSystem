@@ -7,23 +7,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="350.0" style="-fx-background-color: #383838;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomePage.WelcomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+            prefWidth="350.0" style="-fx-background-color: #383838;" xmlns="http://javafx.com/javafx/8.0.141"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomePage.WelcomeController">
     <children>
         <Label layoutX="107.0" layoutY="132.0" prefHeight="35.0" prefWidth="135.0" text="Welcome to" textFill="WHITE">
             <font>
-                <Font size="24.0" />
+                <Font size="24.0"/>
             </font>
         </Label>
-        <Button fx:id="loginButton" layoutX="63.0" layoutY="241.0" mnemonicParsing="false" onAction="#onClickLogin" text="Login" />
-        <Button fx:id="signUpButton" layoutX="237.0" layoutY="241.0" mnemonicParsing="false" onAction="#onClickSignUp" text="Sign Up" />
-        <Label layoutX="61.0" layoutY="167.0" prefHeight="35.0" prefWidth="228.0" text="MARTA Panic Station" textFill="WHITE">
+        <Button fx:id="loginButton" layoutX="63.0" layoutY="241.0" mnemonicParsing="false" onAction="#onClickLogin"
+                text="Login"/>
+        <Button fx:id="signUpButton" layoutX="237.0" layoutY="241.0" mnemonicParsing="false" onAction="#onClickSignUp"
+                text="Sign Up"/>
+        <Label layoutX="61.0" layoutY="167.0" prefHeight="35.0" prefWidth="228.0" text="MARTA Panic Station"
+               textFill="WHITE">
             <font>
-                <Font size="24.0" />
+                <Font size="24.0"/>
             </font>
         </Label>
-        <ImageView fx:id="imageView" fitHeight="86.0" fitWidth="305.0" layoutX="14.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="imageView" fitHeight="86.0" fitWidth="305.0" layoutX="14.0" layoutY="31.0" pickOnBounds="true"
+                   preserveRatio="true">
             <image>
-                <Image backgroundLoading="true" url="@../../Marta_Logo2.PNG" />
+                <Image backgroundLoading="true" url="/img/Marta.PNG"/>
             </image>
         </ImageView>
 

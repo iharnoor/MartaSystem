@@ -11,12 +11,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import dbUtil.dbConnection;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -47,14 +45,17 @@ public class SignUpController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        File file = new File("Marta_Logo2.png");
-        Image image = new Image(file.toURI().toString());
-        imageView.setImage(image);
         this.dbConn = new dbConnection();
     }
 
     @FXML
     public void onClickSignUp(ActionEvent event) {
+        if (this.password.equals(this.confPassword))
+            pushToDBC();
+        else print.setText("Passwords don't Match");
+    }
+
+    public void pushToDBC() {
         String sqlInsert = "INSERT INTO login(username,password,firstname,lastname,martacardno,phone) VALUES (?,?,?,?,?,?)";
         try {
             Connection connection = dbConn.getConnection();
@@ -68,11 +69,10 @@ public class SignUpController implements Initializable {
 
             prpStmt.execute();
             connection.close();
-            print.setText("Added Successfully");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        //go to Login page now
+        //launch next page
         try {
             Stage userStage = new Stage();
             FXMLLoader loader = new FXMLLoader();

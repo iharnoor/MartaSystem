@@ -70,3 +70,8 @@ public class WelcomeController implements Initializable {
         }
     }
 }
+//tasks to be completed
+//no duplicates
+//password check
+//printing the name of the user who submitted
+//add image on every page

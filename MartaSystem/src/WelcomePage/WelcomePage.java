@@ -15,8 +15,9 @@ public class WelcomePage extends Application {
         primaryStage.setTitle("Welcome to MARTA Panic Station");
         primaryStage.show();
     }
-
     public static void main(String[] args) {
         launch(args);
     }
 }
+
+

@@ -5,28 +5,27 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
-            prefWidth="350.0" style="-fx-background-color: #383838;" xmlns="http://javafx.com/javafx/8.0.141"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="FileViolation.FileViolationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="350.0" style="-fx-background-color: #383838;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FileViolation.FileViolationController">
     <children>
         <Label layoutX="63.0" layoutY="99.0" text="REPORT A VIOLATION" textFill="WHITE">
             <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
             </font>
         </Label>
-        <ComboBox fx:id="vComboBox" layoutX="93.0" layoutY="179.0" prefHeight="31.0" prefWidth="172.0"
-                  promptText="Select Violation"/>
-        <TextField fx:id="carriageNo" layoutX="86.0" layoutY="237.0" promptText="Carriage #"/>
-        <TextField fx:id="phoneNo" layoutX="86.0" layoutY="281.0" promptText="Confirm Phone #"/>
-        <TextArea fx:id="description" layoutX="80.0" layoutY="330.0" prefHeight="113.0" prefWidth="201.0"
-                  promptText="Description"/>
-        <Button layoutX="146.0" layoutY="468.0" mnemonicParsing="false" onAction="#onClickSubmit" text="Submit"/>
-        <ImageView fx:id="imageView" fitHeight="74.0" fitWidth="334.0" layoutX="8.0" layoutY="25.0" pickOnBounds="true"
-                   preserveRatio="true"/>
+        <ComboBox fx:id="vComboBox" layoutX="93.0" layoutY="179.0" prefHeight="31.0" prefWidth="172.0" promptText="Select Violation" />
+        <TextField fx:id="carriageNo" layoutX="86.0" layoutY="237.0" promptText="Carriage #" />
+        <TextField fx:id="phoneNo" layoutX="86.0" layoutY="281.0" promptText="Confirm Phone #" />
+        <TextArea fx:id="description" layoutX="80.0" layoutY="330.0" prefHeight="113.0" prefWidth="201.0" promptText="Description" />
+        <Button layoutX="146.0" layoutY="468.0" mnemonicParsing="false" onAction="#onClickSubmit" text="Submit" />
+        <ImageView fx:id="imageView" fitHeight="74.0" fitWidth="334.0" layoutX="8.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="/img/Marta.PNG" />
+         </image></ImageView>
 
     </children>
 </AnchorPane>

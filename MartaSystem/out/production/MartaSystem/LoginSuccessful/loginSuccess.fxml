@@ -37,7 +37,7 @@
         <ImageView fx:id="imageView" fitHeight="71.0" fitWidth="322.0" layoutX="15.0" layoutY="41.0" pickOnBounds="true"
                    preserveRatio="true">
             <image>
-                <Image url="@../../Marta_Logo2.PNG"
+                <Image url="/img/Marta.PNG"
                        backgroundLoading="true"
                 />
             </image>
