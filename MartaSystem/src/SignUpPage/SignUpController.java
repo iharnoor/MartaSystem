@@ -11,9 +11,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import dbUtil.dbConnection;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -39,9 +42,14 @@ public class SignUpController implements Initializable {
     @FXML
     private PasswordField confPassword;
     private dbConnection dbConn;
+    @FXML
+    private ImageView imageView;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        File file = new File("Marta_Logo2.png");
+        Image image = new Image(file.toURI().toString());
+        imageView.setImage(image);
         this.dbConn = new dbConnection();
     }
 

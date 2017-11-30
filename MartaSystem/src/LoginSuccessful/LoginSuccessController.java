@@ -9,6 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -19,12 +21,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginSuccessController implements Initializable {
+    public ImageView imageView;
     @FXML
     private Label print;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        File file = new File("Marta_Logo2.png");
+        Image image = new Image(file.toURI().toString());
+        imageView.setImage(image);
     }
 
     public void onReportClick(ActionEvent event) {
