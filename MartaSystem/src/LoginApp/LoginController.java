@@ -1,5 +1,6 @@
 package LoginApp;
 
+import LoginSuccessful.LoginSuccessModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -49,10 +50,10 @@ public class LoginController implements Initializable {
                 stage.close();
                 userLogin();
             } else this.loginStatus.setText("Wrong Credentials");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void userLogin() {
@@ -60,8 +61,10 @@ public class LoginController implements Initializable {
             Stage userStage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             Pane root = (Pane) loader.load(getClass().getResource("/LoginSuccessful/loginSuccess.fxml").openStream());
-
             LoginSuccessController loginSuccessController = (LoginSuccessController) loader.getController();
+            //set text
+            loginSuccessController.setUserName(userName);
+
             Scene scene = new Scene(root);
             userStage.setScene(scene);
             userStage.setTitle("Marta Dashboard");

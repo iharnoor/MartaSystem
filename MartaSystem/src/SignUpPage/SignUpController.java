@@ -50,7 +50,7 @@ public class SignUpController implements Initializable {
 
     @FXML
     public void onClickSignUp(ActionEvent event) {
-        if (this.password.equals(this.confPassword))
+        if (this.password.getText().equals(this.confPassword.getText()))
             pushToDBC();
         else print.setText("Passwords don't Match");
     }
