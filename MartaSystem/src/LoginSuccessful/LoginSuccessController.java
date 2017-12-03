@@ -1,6 +1,8 @@
 package LoginSuccessful;
 
 import FileViolation.FileViolationController;
+import dbUtil.dbConnection;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,28 +16,48 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LoginSuccessController implements Initializable {
     public ImageView imageView;
     @FXML
     private Label print;
+    private dbConnection dc;
+    private String sql = "SELECT * FROM login";
 
-    LoginSuccessModel loginSuccessModel = new LoginSuccessModel();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
 
-    public void setUserName(String name) {
+    public void sendUserName(String name) {
+        String firstName = loadFirstName(name);
+        print.setText(firstName);
+    }
 
-//        try {
-////            print.setText(loginSuccessModel.getFirstName(name));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-            print.setText("Exception");
-//        }
-        print.setText(name);
+
+    public String loadFirstName(String userName) {
+        try {
+            Connection conn = dbConnection.getConnection();
+
+            ResultSet rs = conn.createStatement().executeQuery(sql);
+
+            String fName = "";
+            while (rs.next()) {
+                if (rs.getString(1).equals(userName)) {
+                    fName = rs.getString(3);
+                }
+            }
+            return fName;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "Something went wrong";
     }
 
     public void onReportClick(ActionEvent event) {
@@ -49,6 +71,9 @@ public class LoginSuccessController implements Initializable {
             userStage.setTitle("Violations Page");
             userStage.setResizable(false);
             userStage.show();
+            //if you need to close the scene
+//            Stage stage = (Stage) closeButton.getScene().getWindow();
+//            stage.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

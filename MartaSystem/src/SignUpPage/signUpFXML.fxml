@@ -24,9 +24,9 @@
         </Label>
         <PasswordField fx:id="password" layoutX="82.0" layoutY="366.0" promptText="Password" />
         <PasswordField fx:id="confPassword" layoutX="82.0" layoutY="403.0" promptText="Confirm Password" />
-        <Label fx:id="print" layoutX="22.0" layoutY="501.0" prefHeight="35.0" prefWidth="316.0" textFill="WHITE">
+        <Label fx:id="print" layoutX="22.0" layoutY="501.0" prefHeight="52.0" prefWidth="316.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
             <font>
-                <Font size="24.0" />
+                <Font size="18.0" />
             </font>
         </Label>
         <ImageView fx:id="imageView" fitHeight="97.0" fitWidth="272.0" layoutX="40.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
@@ -34,5 +34,10 @@
                 <Image backgroundLoading="true" url="/img/Marta.PNG" />
             </image>
         </ImageView>
+      <Label fx:id="print2" layoutX="22.0" layoutY="560.0" prefHeight="31.0" prefWidth="316.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

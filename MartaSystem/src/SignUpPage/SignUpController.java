@@ -20,11 +20,17 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ResourceBundle;
+
+import static org.sqlite.SQLiteErrorCode.SQLITE_CONSTRAINT_UNIQUE;
 
 public class SignUpController implements Initializable {
     @FXML
     private Label print;
+    @FXML
+    private Label print2;
+
     @FXML
     private TextField userName;
     @FXML
@@ -40,8 +46,6 @@ public class SignUpController implements Initializable {
     @FXML
     private PasswordField confPassword;
     private dbConnection dbConn;
-    @FXML
-    private ImageView imageView;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -50,9 +54,22 @@ public class SignUpController implements Initializable {
 
     @FXML
     public void onClickSignUp(ActionEvent event) {
-        if (this.password.getText().equals(this.confPassword.getText()))
-            pushToDBC();
-        else print.setText("Passwords don't Match");
+        boolean execute = false;
+        print.setText("");
+        print2.setText("");
+        if (userName.getText().isEmpty() || password.getText().isEmpty() || martaCardNo.getText().isEmpty() ||
+                phoneNo.getText().isEmpty() || firstName.getText().isEmpty() || lastName.getText().isEmpty()) {
+            print2.setText("Incomplete Credentials");
+        } else {
+            if (!this.password.getText().equals(this.confPassword.getText()))
+                print.setText("Passwords don't Match");
+            else if (!phoneNo.getText().matches("[1-9][0-9]{9}"))
+                print.setText(print.getText() + " Invalid Phone Number");
+            else if (!martaCardNo.getText().matches("[1-9][0-9]{19}"))
+                print2.setText(print2.getText() + " Invalid Marta Card Number");
+            else
+                pushToDBC();
+        }
     }
 
     public void pushToDBC() {
@@ -69,10 +86,13 @@ public class SignUpController implements Initializable {
 
             prpStmt.execute();
             connection.close();
+            launchLoginPage();
         } catch (SQLException e) {
-            e.printStackTrace();
+            print.setText("Data Already Exists. Please enter Unique");
         }
-        //launch next page
+    }
+
+    private void launchLoginPage() {
         try {
             Stage userStage = new Stage();
             FXMLLoader loader = new FXMLLoader();

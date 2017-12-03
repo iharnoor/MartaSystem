@@ -1,19 +1,17 @@
 package FileViolation;
 
 public enum violations {
-    VIOLATIONS1("Eat On Buses and Trains"),
-    VIOLATIONS2("Smoke"),
-    VIOLATIONS3("Litter"),
-    VIOLATIONS4("Drink On Buses and Trains"),
-    VIOLATIONS5("Vandalize"),
+    VIOLATIONS1("Panhandling"),
+    VIOLATIONS2("Soliciting"),
+    VIOLATIONS3("Playing a Sound Device"),
+    VIOLATIONS4("Having an Animal Onboard"),
+    VIOLATIONS5("Carrying a Weapon"),
     VIOLATIONS6("Write Graffiti"),
-    VIOLATIONS7("Panhandle"),
-    VIOLATIONS8("Solicit"),
-    VIOLATIONS9("Carry Weapons"),
-    VIOLATIONS10("Play sound devices without earphones"),
-    VIOLATIONS11("Not pay your fare"),
-    VIOLATIONS12("Bring animals on board"),
-    VIOLATIONS13("Assault MARTA Employees");
+    VIOLATIONS7("Vandalizing"),
+    VIOLATIONS8("Writing Graffiti"),
+    VIOLATIONS9("Littering"),
+    VIOLATIONS10("Smoking"),
+    VIOLATIONS11("Eating Or Drinking");
 
     private String violation;
 
