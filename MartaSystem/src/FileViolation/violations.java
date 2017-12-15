@@ -1,5 +1,5 @@
 package FileViolation;
-
+// enumerations of the violations. total 11 violations
 public enum violations {
     VIOLATIONS1("Panhandling"),
     VIOLATIONS2("Soliciting"),

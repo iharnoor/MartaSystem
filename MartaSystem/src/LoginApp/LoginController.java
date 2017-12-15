@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+//controller to interact with the LoginApp Page
 public class LoginController implements Initializable {
     private LoginModel loginModel = new LoginModel();
 
@@ -34,7 +35,7 @@ public class LoginController implements Initializable {
     private ImageView imageView;
     public String userName;
 
-
+    // like a constructor. check connection when page launches
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if (this.loginModel.isDatabaseConnected()) {
@@ -42,6 +43,7 @@ public class LoginController implements Initializable {
         } else this.dbstatus.setText("Not Connected to Database");
     }
 
+    // Login Button. Action performed when button is clicked
     @FXML
     public void Login(ActionEvent event) {
         userName = this.username.getText();
@@ -57,6 +59,7 @@ public class LoginController implements Initializable {
         }
     }
 
+    // launch next page .
     public void userLogin() {
         try {
             Stage userStage = new Stage();
@@ -64,7 +67,7 @@ public class LoginController implements Initializable {
             Pane root = (Pane) loader.load(getClass().getResource("/LoginSuccessful/loginSuccess.fxml").openStream());
             LoginSuccessController loginSuccessController = (LoginSuccessController) loader.getController();
             //set text
-            loginSuccessController.sendUserName(userName);
+            loginSuccessController.sendUserName(userName);// send user name to the next page used for printing.
 
             Scene scene = new Scene(root);
             userStage.setScene(scene);

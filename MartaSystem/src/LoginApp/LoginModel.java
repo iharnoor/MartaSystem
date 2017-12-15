@@ -8,9 +8,12 @@ import java.sql.SQLException;
 import dbUtil.dbConnection;
 
 public class LoginModel {
-    Connection connection;
+    private Connection connection;
 
-    public LoginModel() {
+    // class to get check the connection with the dbc and
+
+    //get connection on creating object
+    LoginModel() {
         try {
             this.connection = dbConnection.getConnection();
         } catch (SQLException e) {
@@ -21,11 +24,13 @@ public class LoginModel {
         }
     }
 
-    public boolean isDatabaseConnected() {
+    //check if dbc is connected
+    boolean isDatabaseConnected() {
         return this.connection != null;
     }
 
-    public boolean isLogin(String user, String pass) throws Exception {
+    //  check if the userid password is correct in the DBC
+    boolean isLogin(String user, String pass) throws Exception {
         PreparedStatement prpStmt = null;
         ResultSet rs = null;
         String sql = "SELECT * FROM login where username = ? and password =?";

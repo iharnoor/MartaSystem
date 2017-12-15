@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+//Main method class which launches the first page
 public class WelcomePage extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -15,6 +16,7 @@ public class WelcomePage extends Application {
         primaryStage.setTitle("Welcome to MARTA Panic Station");
         primaryStage.show();
     }
+
     public static void main(String[] args) {
         launch(args);
     }

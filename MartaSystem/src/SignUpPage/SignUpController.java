@@ -30,7 +30,6 @@ public class SignUpController implements Initializable {
     private Label print;
     @FXML
     private Label print2;
-
     @FXML
     private TextField userName;
     @FXML
@@ -51,6 +50,7 @@ public class SignUpController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         this.dbConn = new dbConnection();
     }
+    // action performed when onClickSignUp is clicked
 
     @FXML
     public void onClickSignUp(ActionEvent event) {
@@ -72,7 +72,10 @@ public class SignUpController implements Initializable {
         }
     }
 
-    public void pushToDBC() {
+    /**
+     * method to push the data into the DBC
+     */
+    private void pushToDBC() {
         String sqlInsert = "INSERT INTO login(username,password,firstname,lastname,martacardno,phone) VALUES (?,?,?,?,?,?)";
         try {
             Connection connection = dbConn.getConnection();
@@ -92,6 +95,7 @@ public class SignUpController implements Initializable {
         }
     }
 
+    // launch next page
     private void launchLoginPage() {
         try {
             Stage userStage = new Stage();

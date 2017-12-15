@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+//class to link the GUI of sign up page
 public class WelcomeController implements Initializable {
     @FXML
     private Button loginButton;
@@ -35,6 +36,7 @@ public class WelcomeController implements Initializable {
         imageView.setImage(image);
     }
 
+    // action performed when login button is clicked
     @FXML
     public void onClickLogin(ActionEvent event) {
         try {
@@ -53,6 +55,7 @@ public class WelcomeController implements Initializable {
         }
     }
 
+    // action performed when sign up button is clicked
     public void onClickSignUp(ActionEvent event) {
         try {
             Stage userStage = new Stage();

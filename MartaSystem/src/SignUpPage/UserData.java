@@ -1,5 +1,5 @@
 package SignUpPage;
-
+// Class to organize the userData and stor it in an object
 public class UserData {
     private String userName;
     private String password;

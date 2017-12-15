@@ -29,17 +29,18 @@ public class LoginSuccessController implements Initializable {
     private dbConnection dc;
     private String sql = "SELECT * FROM login";
 
-
+    //like a constructor
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
 
+    //receive user name from last page. and use it to fetch the First name of the person and print it
     public void sendUserName(String name) {
         String firstName = loadFirstName(name);
         print.setText(firstName);
     }
 
-
+    // get first name from user naem
     public String loadFirstName(String userName) {
         try {
             Connection conn = dbConnection.getConnection();
@@ -60,6 +61,7 @@ public class LoginSuccessController implements Initializable {
         return "Something went wrong";
     }
 
+    // action performed when report button is clicked. launch next page
     public void onReportClick(ActionEvent event) {
         try {
             Stage userStage = new Stage();

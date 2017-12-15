@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
+// Class to interact with the GUI of (FileViolation) Page
 public class FileViolationController implements Initializable {
     @FXML
     private TextField carriageNo;
@@ -42,14 +43,13 @@ public class FileViolationController implements Initializable {
     @FXML
     private ImageView imageView;
 
+    //intialize is like a constructor. to set things up when page launches
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        File file = new File("Marta_Logo2.png");
-//        Image image = new Image(file.toURI().toString());
-//        imageView.setImage(image);
         this.vComboBox.setItems(FXCollections.observableArrayList(violations.values()));
     }
 
+    // action to be performed when user clicks submit button
     public void onClickSubmit(ActionEvent event) {
         String sqlInsert = "INSERT INTO violations(violationtype,carriageno,phoneno,description) VALUES (?,?,?,?)";
         try {

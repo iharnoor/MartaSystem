@@ -9,8 +9,8 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
-public class LastPageController implements Initializable{
+//controller to interact with the last page GUI
+public class LastPageController implements Initializable {
     @FXML
     private ImageView imageView;
 
